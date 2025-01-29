@@ -1,10 +1,5 @@
 # 🐋 DeepSeek Document Analysis
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B)](https://streamlit.io/)
-[![DeepSeek](https://img.shields.io/badge/DeepSeek-Powered-brightgreen)](https://deepseek.com/)
-
 ## 🎯 Overview
 
 DeepSeek Document Analysis is a powerful document analysis tool that leverages DeepSeek's advanced language models through Groq's infrastructure. This application enables users to analyze multiple document formats and engage in intelligent conversations about their content using state-of-the-art AI technology.
@@ -117,66 +112,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 **Kafait-Ullah**
 - GitHub: [@Kafait-Ullah](https://github.com/Kafait-Ullah)
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/Kafait-Ullah/deepseek-document-analysis/issues).
 
 ## ⭐ Show your support
 
 Give a ⭐️ if this project helped you!
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Ah yes, let me correct that with a more appropriate open-source focused post:
-
-🔧 New Open-Source Project: Document Analysis System with DeepSeek Integration
-
-Built a straightforward RAG implementation leveraging DeepSeek models via Groq. Wanted to share this with the community for those interested in exploring DeepSeek's capabilities in document analysis applications.
-
-🔍 Core Features:
-• Document vectorization and retrieval
-• Clean UI for document interaction
-• Multi-format support
-• DeepSeek model integration
-
-⚡️ Tech Implementation:
-• DeepSeek via Groq
-• LangChain
-• FAISS
-• Streamlit
-
-📘 Open-source and available on GitHub: [Link]
-
-Feel free to explore, contribute, or adapt for your projects. Looking forward to community feedback and potential improvements.
-
-#OpenSource #AI #DeepSeek #MachineLearning #Python
-
-This better captures the open-source nature of your project? Let me know if you'd like any adjustments to the tone or content.
