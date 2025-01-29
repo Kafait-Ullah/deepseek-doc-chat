@@ -1,0 +1,16 @@
+flask
+python-dotenv
+langchain
+langchain-community
+sentence-transformers
+transformers
+tokenizers
+faiss-cpu
+torch
+numpy
+scipy
+accelerate
+pandas
+httpx
+pydantic
+python-decouple
