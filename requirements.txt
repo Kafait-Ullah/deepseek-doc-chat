@@ -8,3 +8,4 @@ faiss-cpu
 sentence-transformers
 nest_asyncio
 PyMuPDF
+pypdf
