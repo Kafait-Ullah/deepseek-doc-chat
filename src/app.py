@@ -48,68 +48,169 @@ st.set_page_config(
 st.markdown(
     """
 <style>
-/* ─── CONTAINER & BACKGROUND ───────────────────────────────────────────── */
-.main { background: linear-gradient(135deg, #0a192f 0%, #112240 100%); color: #e0e0e0; }
-section[data-testid="stSidebar"] { background: linear-gradient(135deg, #0a192f, #112240); }
+    /* Global Theme */
+    .main {
+        background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+        color: #e0e0e0;
+    }
+    
+    /* Neural Network Animation */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    /* Sidebar Styling */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+        border-right: 1px solid #233554;
+    }
+    .css-1d391kg {
+        background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+    }
+    
+    /* Buttons */
+    .stButton>button {
+        background: linear-gradient(45deg, #3a1c71 0%, #d76d77 50%, #ffaf7b 100%);
+        color: white;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(58, 28, 113, 0.3);
+        animation: pulse 1.5s infinite;
+    }
+    
+    /* Updated Groq API Input */
+    .stTextInput[data-testid="stTextInput"] input {
+        background: rgba(30, 42, 58, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        color: #e0e0e0 !important;
+        border: 1px solid rgba(58, 28, 113, 0.3) !important;
+        border-radius: 8px;
+        padding: 0.8rem;
+    }
+    
+    /* Updated Model Selection Dropdown */
+    .stSelectbox[data-testid="stSelectbox"] > div > div {
+        background: rgba(30, 42, 58, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        color: #e0e0e0 !important;
+        border: 1px solid rgba(58, 28, 113, 0.3) !important;
+        border-radius: 8px;
+    }
+    
+    /* Updated File Uploader */
+    .uploadedFile {
+        background: rgba(30, 42, 58, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(58, 28, 113, 0.3) !important;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+    
+    /* Updated Drag and Drop Area */
+    .css-1mvd0qx {
+        background: rgba(30, 42, 58, 0.8) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 2px dashed rgba(58, 28, 113, 0.3) !important;
+        color: #e0e0e0 !important;
+        max-height: 150px !important;
+        min-height: 100px !important;
+    }
+    
+    /* Chat Messages */
+    .stChatMessage {
+        background-color: #1e2a3a;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border: 1px solid #233554;
+    }
+    
+    /* Welcome Card */
+    .welcome-card {
+        background: linear-gradient(135deg, #1e2a3a 0%, #233554 100%);
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid #233554;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        margin: 2rem 0;
+        animation: pulse 3s infinite;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #1e2a3a;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #233554;
+        border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #d76d77;
+    }
 
-/* ─── BUTTONS ────────────────────────────────────────────────────────── */
-.stButton>button {
-    background: linear-gradient(45deg, #3a1c71, #d76d77, #ffaf7b);
-    color: #fff; border-radius: 8px; padding: .6rem 1.2rem;
-    border: none; font-weight: 600; transition: 0.3s; width: 100%; margin-top: 1rem;
-}
-.stButton>button:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(58,28,113,0.3); }
+    /* Chat Input */
+    .stChatInput {
+        border-radius: 8px;
+        background-color: #1e2a3a !important;
+        border: 1px solid #233554 !important;
+        color: #e0e0e0 !important;
+    }
 
-/* ─── TEXT INPUTS ────────────────────────────────────────────────────── */
-/* unify icon/bg + focused/unfocused state */
-[data-testid="stTextInput"] > div, 
-[data-testid="stTextInput"] input, 
-[data-testid="stTextInput"] svg {
-    background: rgba(30,42,58,0.8) !important;
-    color: #e0e0e0 !important;
-    border: 1px solid rgba(58,28,113,0.3) !important;
-    border-radius: 8px !important;
-}
-[data-testid="stTextInput"] input:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 2px rgba(58,28,113,0.5) !important;
-}
+    /* Success/Error Messages */
+    .stSuccess, .stError {
+        background-color: #1e2a3a !important;
+        color: #e0e0e0 !important;
+        border-radius: 8px;
+    }
 
-/* ─── SELECTBOX ─────────────────────────────────────────────────────── */
-[data-testid="stSelectbox"] > div > div {
-    background: rgba(30,42,58,0.8) !important;
-    color: #e0e0e0 !important;
-    border: 1px solid rgba(58,28,113,0.3) !important;
-    border-radius: 8px !important;
-}
+    /* Text Color */
+    .css-10trblm {
+        color: #e0e0e0 !important;
+    }
+    p {
+        color: #e0e0e0 !important;
+    }
+    
+    /* DeepSeek Badge */
+    .deepseek-badge {
+        background: linear-gradient(45deg, #3a1c71 0%, #d76d77 100%);
+        padding: 0.2rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: white;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
 
-/* ─── FILE UPLOADER ─────────────────────────────────────────────────── */
-.css-1mvd0qx, .uploadedFile {
-    background: rgba(30,42,58,0.8) !important;
-    border: 2px dashed rgba(58,28,113,0.3) !important;
-    border-radius: 8px !important;
-    max-height: 200px !important;
-    overflow-y: auto !important;
-    padding: 1rem !important;
-    color: #e0e0e0 !important;
-}
-
-/* ─── CHAT BOX ─────────────────────────────────────────────────────── */
-.stChatInput textarea {
-    background: #1e2a3a !important;
-    color: #e0e0e0 !important;
-    border: 1px solid #233554 !important;
-    border-radius: 8px !important;
-    padding: .8rem !important;
-}
-.stChatInput textarea:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 2px rgba(58,28,113,0.5) !important;
-}
+    /* Sidebar Headers */
+    .sidebar-header {
+        color: #e0e0e0;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #233554;
+    }
 </style>
-""",
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # DEEPSEEK DOCUMENT CHAT CLASS
